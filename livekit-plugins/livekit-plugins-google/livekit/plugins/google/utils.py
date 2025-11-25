@@ -86,13 +86,6 @@ def create_tools_config(
                 logger.warning(f"Warning: Received unhandled tool type: {type(tool)}")
                 continue
 
-    if len(tools) > 1:
-        # https://github.com/google/adk-python/issues/53#issuecomment-2799538041
-        logger.warning(
-            "Multiple kinds of tools are not supported in Gemini. Only the first tool will be used."
-        )
-        tools = tools[:1]
-
     return tools
 
 
