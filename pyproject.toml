@@ -19,7 +19,6 @@ livekit-plugins-fal = { workspace = true }
 livekit-plugins-fireworksai = { workspace = true }
 livekit-plugins-fishaudio = { workspace = true }
 livekit-plugins-gladia = { workspace = true }
-livekit-plugins-google = { workspace = true }
 livekit-plugins-groq = { workspace = true }
 livekit-plugins-hedra = { workspace = true }
 livekit-plugins-hume = { workspace = true }
@@ -57,6 +56,7 @@ exclude = [
     "livekit-plugins/livekit-plugins-browser",
     "livekit-plugins/livekit-blingfire",
     "livekit-plugins/livekit-durable",
+    "livekit-plugins/livekit-plugins-google",
 ]
 
 [dependency-groups]
