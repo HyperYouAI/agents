@@ -473,8 +473,8 @@ class LLMStream(llm.LLMStream):
 
                 for part in candidate.content.parts:
                     chat_chunk = self._parse_part(request_id, part)
-                    response_generated = True
                     if chat_chunk is not None:
+                        response_generated = True
                         retryable = False
                         self._event_ch.send_nowait(chat_chunk)
 
@@ -545,6 +545,9 @@ class LLMStream(llm.LLMStream):
                 and part.thought_signature
             ):
                 self._llm._thought_signatures[tool_call.call_id] = part.thought_signature
+            
+            if part.function_call.name in {"google_maps"} and not part.text:
+                return None
 
             chat_chunk = llm.ChatChunk(
                 id=id,
